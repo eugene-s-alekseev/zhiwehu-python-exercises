@@ -20,13 +20,22 @@ def main():
     q = tf.sqrt((2 * c * d) / h, name="sqrt")
     output = tf.round(q, "rounded")
 
-    writer = tf.summary.FileWriter("tensorboard")
+    tf.summary.scalar("c", c)
+    tf.summary.scalar("h", h)
+    tf.summary.histogram("d", d)
+    tf.summary.histogram("output", output)
+
+    merged = tf.summary.merge_all()
+
+    saver = tf.summary.FileWriter("tensorboard")
 
     init = tf.global_variables_initializer()
 
     with tf.Session() as sess:
         sess.run(init)
-        print(sess.run(output))
+        summary, output_values = sess.run([merged, output])
+        saver.add_summary(summary)
+        print(output_values)
 
 
 if __name__ == "__main__":
