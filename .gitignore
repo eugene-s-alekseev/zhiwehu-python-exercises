@@ -1,2 +1,2 @@
-tensorboard.*
-\.idea.*
+tensorboard/
+.idea/
