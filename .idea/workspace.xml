@@ -45,11 +45,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="10.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="10.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/10.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
               <caret line="17" column="38" lean-forward="false" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+              <folding>
+                <element signature="e#85#100#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="11.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/11.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="31" column="27" lean-forward="false" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
               <folding>
                 <element signature="e#85#100#0" expanded="true" />
               </folding>
@@ -80,6 +92,7 @@
         <option value="$PROJECT_DIR$/8.py" />
         <option value="$PROJECT_DIR$/9.py" />
         <option value="$PROJECT_DIR$/10.py" />
+        <option value="$PROJECT_DIR$/11.py" />
       </list>
     </option>
   </component>
@@ -401,6 +414,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="17" column="38" lean-forward="false" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+          <folding>
+            <element signature="e#85#100#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="31" column="27" lean-forward="false" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
           <folding>
             <element signature="e#85#100#0" expanded="true" />
           </folding>
