@@ -2,13 +2,15 @@ __author__ = "Eugene Alekseev"
 __maintainer__ = "Eugene Alekseev"
 __version__ = "v1.0"
 
+import json
 import psycopg2
 import random
 
 import pandas as pd
 import tensorflow as tf
 
-CREDENTIALS = "dbname='zhiwehu' user='postgres' password='ak748641086' host='localhost'"
+with open("postgres_cred.json", "r") as file:
+    CREDENTIALS = json.load(file)
 
 
 def fill_table(table, n_transactions=50, lower_range=1., upper_range=500.):
@@ -19,7 +21,7 @@ def fill_table(table, n_transactions=50, lower_range=1., upper_range=500.):
         }
         for _ in range(n_transactions)
     ]
-    with psycopg2.connect(CREDENTIALS) as conn:
+    with psycopg2.connect(**CREDENTIALS) as conn:
         cursor = conn.cursor()
         cursor.execute("""
         create table if not exists {0} (type char(1), value numeric(7, 2));
@@ -34,7 +36,7 @@ def fill_table(table, n_transactions=50, lower_range=1., upper_range=500.):
 
 
 def get_table(table):
-    with psycopg2.connect(CREDENTIALS) as conn:
+    with psycopg2.connect(**CREDENTIALS) as conn:
         transactions = pd.read_sql("select * from {0}".format(table), conn)
 
     return transactions["type"].values, transactions["value"].values

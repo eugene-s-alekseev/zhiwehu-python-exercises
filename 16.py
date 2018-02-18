@@ -3,16 +3,19 @@ __maintainer__ = "Eugene Alekseev"
 __version__ = "v1.0"
 
 import argparse
+import json
 import psycopg2
 
 import pandas as pd
 import tensorflow as tf
 
-POSTGRES_CREDENTIALS = "dbname='zhiwehu' user='postgres' host='localhost' password='ak748641086'"
+
+with open("postgres_cred.json", "r") as file:
+    CREDENTIALS = json.load(file)
 
 
 def insert_numbers(number):
-    with psycopg2.connect(POSTGRES_CREDENTIALS) as conn:
+    with psycopg2.connect(**CREDENTIALS) as conn:
         cursor = conn.cursor()
         cursor.execute("create table if not exists t16 (number int);")
         cursor.execute("truncate table t16;")
@@ -28,7 +31,7 @@ def insert_numbers(number):
 
 
 def read_values():
-    with psycopg2.connect(POSTGRES_CREDENTIALS) as conn:
+    with psycopg2.connect(**CREDENTIALS) as conn:
         numbers = pd.read_sql("select * from t16", conn)
 
     return numbers.values.squeeze()
